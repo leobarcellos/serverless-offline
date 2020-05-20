@@ -301,23 +301,9 @@ export default class ServerlessOffline {
             })
           }
         }
-
-        if (schedule) {
-          scheduleEvents.push({ functionKey, schedule })
-        }
-
-        if (websocket) {
-          webSocketEvents.push({ functionKey, websocket })
-        }
       })
     })
-
-    return {
-      httpEvents,
-      lambdas,
-      scheduleEvents,
-      webSocketEvents,
-    }
+    this._apiGateway.createMissingHeadRoutes()
   }
 
   // TEMP FIXME quick fix to expose gateway server for testing, look for better solution

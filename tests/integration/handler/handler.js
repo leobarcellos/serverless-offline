@@ -202,3 +202,10 @@ exports.TestPathVariable = (event, context, callback) => {
     body: stringify(event.path),
   })
 }
+
+exports.OK = async () => {
+  return {
+    statusCode: 200,
+    headers: { 'head-header': 'OK' },
+  }
+}

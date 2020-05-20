@@ -147,11 +147,22 @@ functions:
       - http:
           method: get
           path: bad-answer-in-callback-handler
-    handler: handler.BadAnswerInCallbackHandler
+    handler: handlerPayload.BadAnswerInCallbackHandler
 
-  TestPathVariable:
+  HeadOnly:
     events:
       - http:
+          method: head
+          path: head-only-handler
+    handler: handlerPayload.OK
+
+  HeadAndGet:
+    events:
+      - http:
+          method: head
+          path: head-get-handler
+      - http:
           method: get
-          path: test-path-variable-handler
-    handler: handler.TestPathVariable
+          path: head-get-handler
+    handler: handlerPayload.OK
+
